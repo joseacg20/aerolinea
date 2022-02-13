@@ -1,4 +1,12 @@
-import { SET_DATE, SET_DESTINATION, SET_ORIGIN, SET_PERSONS } from "../types";
+import {
+  GET_PLACES,
+  SET_DATE,
+  SET_DESTINATION,
+  SET_ORIGIN,
+  SET_PERSONS,
+} from "../types";
+
+export const getPlaces = (places) => ({ type: GET_PLACES, payload: places });
 
 export const setOrigin = (id) => ({ type: SET_ORIGIN, payload: id });
 

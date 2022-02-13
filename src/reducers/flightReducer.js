@@ -1,4 +1,10 @@
-import { SET_DATE, SET_DESTINATION, SET_ORIGIN, SET_PERSONS } from "../types";
+import {
+  GET_PLACES,
+  SET_DATE,
+  SET_DESTINATION,
+  SET_ORIGIN,
+  SET_PERSONS,
+} from "../types";
 
 export const initialState = {
   places: [
@@ -21,6 +27,14 @@ export const initialState = {
 
 export function flightReducer(state = initialState, action) {
   switch (action.type) {
+    case GET_PLACES: {
+      console.log(state);
+      console.log(action.payload);
+      return {
+        ...state,
+        places: [...state.places, action.payload],
+      };
+    }
     case SET_ORIGIN: {
       return {
         ...state,

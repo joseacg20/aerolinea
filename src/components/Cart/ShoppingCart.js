@@ -1,9 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import {
-  clearCart,
-  deleteFromCart,
-} from "../../actions/shoppingActions";
+import { clearCart, deleteFromCart } from "../../actions/shoppingActions";
 import CartItem from "./CartItem";
 import "./Styles.css";
 
@@ -41,12 +38,8 @@ const ShoppingCart = () => {
             <CartItem
               key={index}
               data={item}
-              deleteOneFromCart={() =>
-                dispatch(deleteFromCart(item.id))
-              }
-              deleteAllFromCart={() =>
-                dispatch(deleteFromCart(item.id, true))
-              }
+              deleteOneFromCart={() => dispatch(deleteFromCart(item.id))}
+              deleteAllFromCart={() => dispatch(deleteFromCart(item.id, true))}
               disabledButton={false}
             />
           ))

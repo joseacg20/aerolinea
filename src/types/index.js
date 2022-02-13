@@ -6,6 +6,7 @@ export const CLEAR_CART = "CLEAR_CART";
 export const TOTAL_CART = "TOTAL_CART";
 
 // Lugares
+export const GET_PLACES = "GET_PLACES";
 export const SET_ORIGIN = "SET_ORIGIN";
 export const SET_DESTINATION = "SET_DESTINATION";
 export const SET_PERSONS = "SET_PERSONS";

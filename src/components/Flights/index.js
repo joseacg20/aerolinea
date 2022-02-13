@@ -1,11 +1,13 @@
 import { Calendar, utils } from "@amir04lm26/react-modern-calendar-date-picker";
 import "@amir04lm26/react-modern-calendar-date-picker/lib/DatePicker.css";
 import "./Flights.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import getApiPlaces from "../../services/getApiPlaces"
 import {
+  getPlaces,
   setDate,
   setDestination,
   setOrigin,
@@ -15,6 +17,16 @@ import {
 const Flights = () => {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   getApiPlaces().then((response) => {
+  //     response.forEach(element => {
+  //       console.log(element)
+  //       dispatch(getPlaces(element))
+        
+  //     });
+  //   })
+  // }, [dispatch]);
 
   const { places } = state.flight;
   const navigate = useNavigate();
