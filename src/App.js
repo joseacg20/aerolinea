@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { Provider } from "react-redux";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import store from "./store";
+import Flights from "./components/Flights";
+import ShoppingCart from "./components/Cart/ShoppingCart";
+import Navbar from "./components/Navbar";
+import FligthItem from "./components/Cart/FligthItem";
+import Data from "./components/Data";
+import Tickets from "./components/Tickets";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Navbar />
+        <div className="App">
+          <Routes>
+            <Route path="/" element={<Flights />} />
+            <Route path="/reservaciones" element={<ShoppingCart />} />
+            <Route path="/vuelos" element={<FligthItem />} />
+            <Route path="/pagar" element={<Data />} />
+            <Route path="/boletos" element={<Tickets />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </Provider>
   );
 }
 
