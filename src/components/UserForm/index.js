@@ -20,7 +20,9 @@ const Data = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(setTickets(cart));
+    cart.forEach(element => {
+      dispatch(setTickets(element));
+    });
     dispatch(clearCart());
     navigate("/boletos");
   };

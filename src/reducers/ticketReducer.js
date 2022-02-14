@@ -9,7 +9,7 @@ export function ticketReducer(state = initialState, action) {
     case SET_TICKETS: {
       return {
         ...state,
-        ticket: action.payload.map((item) => item),
+        ticket: [...state.ticket, action.payload],
       };
     }
     case GET_TICKETS: {

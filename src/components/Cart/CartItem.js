@@ -12,6 +12,7 @@ const CartItem = ({
     hourFinal,
     price,
     scales,
+    fligth,
     quantity,
     origin,
     destination,
@@ -46,6 +47,7 @@ const CartItem = ({
         </div>
       </div>
       <div className="flight-footer">
+        <p>{fligth}</p>
         <p>{scales === false ? "Sin escalas" : "Con escalas"}</p>
         <p className="price">${price} MXN</p>
       </div>
