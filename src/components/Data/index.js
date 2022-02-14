@@ -1,7 +1,15 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { setTickets } from "../../actions/ticketsActions";
 
 const Data = () => {
+  const state = useSelector((state) => state);
+  const { cart } = state.shopping;
+  // const { fligth } = state.fligth;
+ 
+  const dispatch = useDispatch();
+
   const [form, setForm] = useState({});
   const navigate = useNavigate();
   const handleChange = (e) => {
@@ -12,8 +20,17 @@ const Data = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(form);
-    navigate("/boletos");
+    console.log(cart);
+    const { origin, destination, persons, date} = fligth;
+    const { id, hourInitial, hourFinal, price, scales, fligth, quantity } = cart
+
+    // cart.map((item) => (
+    //   const { id, hourInitial, hourFinal, price, scales, fligth, quantity } = item
+
+    // ))
+    
+    // dispatch(setTickets(cart))
+    // navigate("/boletos");
     // dispatch(setOrigin(form.origin));
     // dispatch(setDestination(form.destination));
     // dispatch(setPersons(form.persons));

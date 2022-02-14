@@ -1,4 +1,4 @@
-// Carrito de reservaciones
+// Carrito
 export const ADD_TO_CART = "ADD_TO_CART";
 export const REMOVE_ONE_FROM_CART = "REMOVE_ONE_FROM_CART";
 export const REMOVE_ALL_FROM_CART = "REMOVE_ALL_FROM_CART";
@@ -11,3 +11,7 @@ export const SET_ORIGIN = "SET_ORIGIN";
 export const SET_DESTINATION = "SET_DESTINATION";
 export const SET_PERSONS = "SET_PERSONS";
 export const SET_DATE = "SET_DATE";
+
+// Tickets
+export const GET_TICKETS = "GET_TICKETS"
+export const SET_TICKETS = "SET_TICKETS"
