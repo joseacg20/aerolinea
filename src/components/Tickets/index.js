@@ -6,13 +6,13 @@ const Tickets = () => {
   const state = useSelector((state) => state);
 
   const navigate = useNavigate();
-  const { cart } = state.shopping;
+  const { ticket } = state.ticket;
   return (
     <div className="card-flight">
       <h2>Mis boletos</h2>
       <article className="box grid-responsive">
-        {cart.length ? (
-          cart.map((item, index) => (
+        {ticket.length ? (
+          ticket.map((item, index) => (
             <CartItem key={index} data={item} disabledButton={true} />
           ))
         ) : (

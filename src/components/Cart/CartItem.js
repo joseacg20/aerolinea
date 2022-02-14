@@ -1,4 +1,3 @@
-import { useSelector } from "react-redux";
 import "./Styles.css";
 
 const CartItem = ({
@@ -7,10 +6,18 @@ const CartItem = ({
   deleteAllFromCart,
   disabledButton,
 }) => {
-  const state = useSelector((state) => state);
-
-  const { origin, destination, persons, date } = state.flight;
-  let { id, hourInitial, hourFinal, price, scales, quantity, fligth } = data;
+  let {
+    id,
+    hourInitial,
+    hourFinal,
+    price,
+    scales,
+    quantity,
+    origin,
+    destination,
+    persons,
+    date,
+  } = data;
 
   return (
     <div className="flight">
@@ -39,7 +46,6 @@ const CartItem = ({
         </div>
       </div>
       <div className="flight-footer">
-        <p>{fligth}</p>
         <p>{scales === false ? "Sin escalas" : "Con escalas"}</p>
         <p className="price">${price} MXN</p>
       </div>

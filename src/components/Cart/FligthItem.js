@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { clearData } from "../../actions/flightActions";
 import { addToCart, totalCart } from "../../actions/shoppingActions";
 import "./Styles.css";
 
@@ -13,8 +14,9 @@ const FligthItem = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addToCart(parseInt(e.target.id)))
-    dispatch(totalCart())
+    dispatch(addToCart(parseInt(e.target.id), state.flight));
+    dispatch(clearData());
+    dispatch(totalCart());
     navigate("/reservaciones");
   };
   return (
@@ -54,12 +56,6 @@ const FligthItem = () => {
                 <p className="price">${fligth.price} MXN</p>
               </div>
               <button className="button">Reservar</button>
-              {/* <button
-                className="button"
-                onClick={() => dispatch(addToCart(fligth.id))}
-              >
-                Reservar
-              </button> */}
             </form>
           </div>
         ))}

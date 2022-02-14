@@ -7,11 +7,9 @@ export const initialState = {
 export function ticketReducer(state = initialState, action) {
   switch (action.type) {
     case SET_TICKETS: {
-      console.log(state);
-      console.log(action.payload);
       return {
         ...state,
-        places: [...state.places, action.payload],
+        ticket: action.payload.map((item) => item),
       };
     }
     case GET_TICKETS: {

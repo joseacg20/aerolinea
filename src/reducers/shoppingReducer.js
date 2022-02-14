@@ -1,4 +1,5 @@
 import {
+  GET_PLACES,
   ADD_TO_CART,
   CLEAR_CART,
   REMOVE_ALL_FROM_CART,
@@ -7,6 +8,18 @@ import {
 } from "../types";
 
 export const initialState = {
+  places: [
+    { id: 1, city: "Acapulco", state: "Guerrero", country: "México" },
+    { id: 2, city: "Barcelona", state: "Cataluña", country: "España" },
+    { id: 3, city: "Belin", state: "Berlin", country: "Alemania" },
+    { id: 4, city: "Cali", state: "Valle de Cauca", country: "Colombia" },
+    {
+      id: 5,
+      city: "Ciudad de México",
+      state: "México D.F",
+      country: "México",
+    },
+  ],
   fligths: [
     {
       id: 1,
@@ -56,11 +69,15 @@ export const initialState = {
 
 export function shoppingReducer(state = initialState, action) {
   switch (action.type) {
+    case GET_PLACES: {
+      return {
+        ...state,
+        places: [...state.places, action.payload],
+      };
+    }
     case ADD_TO_CART: {
       // Buscamos si existe el vuelo en nuestro state
-      let newItem = state.fligths.find(
-        (fligth) => fligth.id === action.payload
-      );
+      let newItem = state.fligths.find((item) => item.id === action.payload.id);
       // Si uno de los items del carrito coincide con el nuevo que agregamos
       let itemInCart = state.cart.find((item) => item.id === newItem.id);
       return itemInCart
@@ -69,14 +86,31 @@ export function shoppingReducer(state = initialState, action) {
             ...state,
             cart: state.cart.map((item) =>
               item.id === newItem.id
-                ? { ...item, quantity: item.quantity + 1 }
+                ? {
+                    ...item,
+                    origin: action.payload.fligth.origin,
+                    destination: action.payload.fligth.destination,
+                    persons: action.payload.fligth.persons,
+                    date: action.payload.fligth.date,
+                    quantity: item.quantity + 1,
+                  }
                 : item
             ),
           }
         : // Si no entonces crea el iten en el state
           {
             ...state,
-            cart: [...state.cart, { ...newItem, quantity: 1 }],
+            cart: [
+              ...state.cart,
+              {
+                ...newItem,
+                origin: action.payload.fligth.origin,
+                destination: action.payload.fligth.destination,
+                persons: action.payload.fligth.persons,
+                date: action.payload.fligth.date,
+                quantity: 1,
+              },
+            ],
           };
     }
     case REMOVE_ONE_FROM_CART: {

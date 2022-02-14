@@ -23,12 +23,11 @@ const Flights = () => {
   //     response.forEach(element => {
   //       console.log(element)
   //       dispatch(getPlaces(element))
-        
   //     });
   //   })
   // }, [dispatch]);
 
-  const { places } = state.flight;
+  const { places } = state.shopping;
   const navigate = useNavigate();
 
   const [form, setForm] = useState({});
