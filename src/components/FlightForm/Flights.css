@@ -1,6 +1,11 @@
 :root {
   --card-color: #79c2d0;
   --card-body-color: rgb(40, 4, 124);
+  margin: 0;
+  padding: 0;
+  background-color: #f2f2f2;
+  font-family: Arial;
+  box-sizing: border-box;
 }
 .card {
   margin: 20px auto;
@@ -27,6 +32,7 @@
   justify-content: space-between;
 }
 .row-field {
+  display: block;
   padding-bottom: 10px;
 }
 .field h4 {
@@ -52,9 +58,9 @@
   -webkit-appearance: none;
 }
 .field input {
-  width: 100%;
+  width: calc(100% - 13px);
   height: 38px;
-  position: relative;
+  padding-left: 8px;
   border: 2px solid #79c2d0;
   border-radius: 5px;
   font-family: "Gotham SSm A", "Gotham SSm B", sans-serif;
@@ -103,4 +109,53 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type="number"] {
   -moz-appearance: textfield;
+}
+.error {
+  font-weight: bold;
+  color: red;
+}
+
+.date {
+  width: calc(100% - 13px);
+}
+
+.responsive-calendar {
+  /* by setting font-size, all the elements will correspond */
+  font-size: 9px !important; /* default to 10px */
+}
+
+@media (max-width: 1500px) {
+  .responsive-calendar {
+    font-size: 8px !important;
+  }
+}
+
+@media (max-width: 1200px) {
+  .responsive-calendar {
+    font-size: 7px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .responsive-calendar {
+    font-size: 6px !important;
+  }
+}
+
+/* Large screens */
+@media (min-width: 2500px) {
+  .responsive-calendar {
+    font-size: 12px !important;
+  }
+}
+
+@media (max-width: 800px) {
+  .grid-responsive {
+    display: grid;
+    grid-template-columns: repeat(auto-fit);
+    gap: 1rem;
+  }
+  .card {
+    width: 80%;
+  }
 }

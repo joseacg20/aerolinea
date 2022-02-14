@@ -61,17 +61,19 @@ const CartItem = ({
         ""
       ) : (
         <div className="flight-footer">
-          <button className="button" onClick={() => deleteOneFromCart(id)}>
-            Eliminar una reservacion
-          </button>
-          <button
-            className="button"
-            onClick={() => {
-              deleteAllFromCart(id, true);
-            }}
-          >
-            Eliminar todas las reservaciones
-          </button>
+          <div className="button-content">
+            <button className="button" onClick={() => deleteOneFromCart(id)}>
+              Eliminar una reservacion
+            </button>
+            <button
+              className="button"
+              onClick={() => {
+                deleteAllFromCart(id, true);
+              }}
+            >
+              Eliminar todas las reservaciones
+            </button>
+          </div>
         </div>
       )}
     </div>

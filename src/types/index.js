@@ -11,8 +11,8 @@ export const SET_ORIGIN = "SET_ORIGIN";
 export const SET_DESTINATION = "SET_DESTINATION";
 export const SET_PERSONS = "SET_PERSONS";
 export const SET_DATE = "SET_DATE";
-export const CLEAR_DATA = "CLEAR_DATA"
+export const CLEAR_DATA = "CLEAR_DATA";
 
 // Tickets
-export const GET_TICKETS = "GET_TICKETS"
-export const SET_TICKETS = "SET_TICKETS"
+export const GET_TICKETS = "GET_TICKETS";
+export const SET_TICKETS = "SET_TICKETS";

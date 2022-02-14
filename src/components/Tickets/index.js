@@ -3,10 +3,11 @@ import { useNavigate } from "react-router-dom";
 import CartItem from "../Cart/CartItem";
 
 const Tickets = () => {
-  const state = useSelector((state) => state);
-
   const navigate = useNavigate();
+
+  const state = useSelector((state) => state);
   const { ticket } = state.ticket;
+
   return (
     <div className="card-flight">
       <h2>Mis boletos</h2>

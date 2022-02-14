@@ -1,15 +1,24 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { clearCart, deleteFromCart } from "../../actions/shoppingActions";
+import {
+  clearCart,
+  deleteFromCart,
+  totalCart,
+} from "../../actions/shoppingActions";
 import CartItem from "./CartItem";
 import "./Styles.css";
 
 const ShoppingCart = () => {
-  const state = useSelector((state) => state);
   const dispatch = useDispatch();
-
   const navigate = useNavigate();
+
+  const state = useSelector((state) => state);
   const { cart, total, totalItem } = state.shopping;
+
+  const deleteFlight = (fun) => {
+    dispatch(fun);
+    dispatch(totalCart());
+  };
 
   return (
     <div className="card-flight">
@@ -22,7 +31,7 @@ const ShoppingCart = () => {
             </button>
           </div>
           <p>{totalItem} vuelos reservados</p>
-          <p>Total: {total}</p>
+          <p>Total: ${total}.00</p>
           <div className="button-pay">
             <button className="button" onClick={() => navigate("/pagar")}>
               Pagar reservaciones
@@ -38,8 +47,10 @@ const ShoppingCart = () => {
             <CartItem
               key={index}
               data={item}
-              deleteOneFromCart={() => dispatch(deleteFromCart(item.id))}
-              deleteAllFromCart={() => dispatch(deleteFromCart(item.id, true))}
+              deleteOneFromCart={() => deleteFlight(deleteFromCart(item.id))}
+              deleteAllFromCart={() =>
+                deleteFlight(deleteFromCart(item.id, true))
+              }
               disabledButton={false}
             />
           ))

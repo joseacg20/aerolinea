@@ -3,11 +3,16 @@ import { useNavigate } from "react-router-dom";
 import { clearData } from "../../actions/flightActions";
 import { addToCart, totalCart } from "../../actions/shoppingActions";
 import "./Styles.css";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 const FligthItem = () => {
-  const state = useSelector((state) => state);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const state = useSelector((state) => state);
+
+  const MySwal = withReactContent(Swal);
 
   const { fligths } = state.shopping;
   const { origin, destination, date } = state.flight;
@@ -17,8 +22,16 @@ const FligthItem = () => {
     dispatch(addToCart(parseInt(e.target.id), state.flight));
     dispatch(clearData());
     dispatch(totalCart());
-    navigate("/reservaciones");
+    MySwal.fire({
+      title: <p>Vuelo agregado a reservaciones</p>,
+      icon: "success",
+      timer: 2000,
+      showConfirmButton: false,
+    }).then(() => {
+      navigate("/reservaciones");
+    });
   };
+
   return (
     <div className="card-flight">
       <h2>Vuelos disponibles</h2>

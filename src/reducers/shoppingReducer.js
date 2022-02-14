@@ -8,18 +8,7 @@ import {
 } from "../types";
 
 export const initialState = {
-  places: [
-    { id: 1, city: "Acapulco", state: "Guerrero", country: "México" },
-    { id: 2, city: "Barcelona", state: "Cataluña", country: "España" },
-    { id: 3, city: "Belin", state: "Berlin", country: "Alemania" },
-    { id: 4, city: "Cali", state: "Valle de Cauca", country: "Colombia" },
-    {
-      id: 5,
-      city: "Ciudad de México",
-      state: "México D.F",
-      country: "México",
-    },
-  ],
+  places: [],
   fligths: [
     {
       id: 1,
@@ -72,7 +61,9 @@ export function shoppingReducer(state = initialState, action) {
     case GET_PLACES: {
       return {
         ...state,
-        places: [...state.places, action.payload],
+        places: action.payload
+        // places: [...state.places, action.payload],
+        // places: action.payload,
       };
     }
     case ADD_TO_CART: {
@@ -139,7 +130,7 @@ export function shoppingReducer(state = initialState, action) {
       };
     }
     case CLEAR_CART:
-      return initialState;
+      return { ...state, cart:[]};
     case TOTAL_CART: {
       let total = 0;
       let totalItem = 0;
