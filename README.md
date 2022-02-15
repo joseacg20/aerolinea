@@ -1,70 +1,102 @@
-# Getting Started with Create React App
+# Aerolinea con React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+El flujo de la aplicacion es al ingresar al sitio tendremos un formulario inicial donde solicitara un lugar de origen, destino, cantidad de pasajeros y una fecha, al ingresar los campos se nos desplegara los viajes disponibles para esa fecha, podremos pre-reservarlos y estos estaran en el apartado "Mis reservaciones", una vez que hayamos elegido todos los viajes deseados procederemos a "pagar" donde este nos pedira informacion adicional y una vez completado los datos el boleto sera nuestro, podremos visualizarlo en el la vista "Mis boletos".
 
-## Available Scripts
+## Disponibles Scripts
 
-In the project directory, you can run:
+Abrir la carpeta del directorio y ejecutar los siguientes comandos
+
+### `npm install`
+
+Instalara las dependencias necesarias, estas son:
+"dependencies": {
+    "@amir04lm26/react-modern-calendar-date-picker",
+    "@testing-library/jest-dom",
+    "@testing-library/react",
+    "@testing-library/user-event",
+    "react",
+    "react-calendar",
+    "react-dom",
+    "react-redux",
+    "react-router-dom",
+    "react-scripts",
+    "redux",
+    "redux-devtools-extension",
+    "redux-thunk",
+    "sweetalert2",
+    "sweetalert2-react-content",
+    "web-vitals"
+},
+
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Abrira en el navegador el siguiente enlace [http://localhost:3000](http://localhost:3000).
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## Descripcion de la datos del API
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+{
+    results: [
+        {
+            id: 1,
+            city: "Acapulco",
+            state: "Guerrero",
+            country: "México"
+        },
+        {
+            id: 2,
+            city: "Barcelona",
+            state: "Cataluña",
+            country: "España"
+        },
+        {
+            id: 3,
+            city: "Berlín",
+            state: "Berlín",
+            country: "Alemania"
+        },
+        {
+            id: 4,
+            city: "Cali",
+            state: "Valle del Cauca",
+            country: "Colombia"
+        },
+        {
+            id: 5,
+            city: "Ciudad de México",
+            state: "México D.F",
+            country: "México"
+        },
+        {
+            id: 6,
+            city: "Los Ángeles",
+            state: "California",
+            country: "Estados Unidos"
+        },
+        {
+            id: 7,
+            city: "Morelia",
+            state: "Michoacán de Ocampo",
+            country: "México"
+        },
+        {
+            id: 8,
+            city: "París",
+            state: "Ile de France",
+            country: "Francia"
+        },
+        {
+            id: 9,
+            city: "Seúl",
+            state: "Seoul-teukbyeolsi",
+            country: "Corea del Sur"
+        },
+        {
+            id: 10,
+            city: "Tijuana",
+            state: "Baja California",
+            country: "México"
+        }
+    ]
+}
