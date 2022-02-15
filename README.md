@@ -9,7 +9,8 @@ Abrir la carpeta del directorio y ejecutar los siguientes comandos
 ### `npm install`
 
 Instalara las dependencias necesarias, estas son:
-"dependencies": {
+```yaml
+{"dependencies": {
     "@amir04lm26/react-modern-calendar-date-picker",
     "@testing-library/jest-dom",
     "@testing-library/react",
@@ -26,7 +27,8 @@ Instalara las dependencias necesarias, estas son:
     "sweetalert2",
     "sweetalert2-react-content",
     "web-vitals"
-},
+}}
+```
 
 
 ### `npm start`
@@ -35,7 +37,7 @@ Abrira en el navegador el siguiente enlace [http://localhost:3000](http://localh
 
 
 ## Descripcion de la datos del API
-
+```yaml
 {
     results: [
         {
@@ -100,3 +102,4 @@ Abrira en el navegador el siguiente enlace [http://localhost:3000](http://localh
         }
     ]
 }
+```
